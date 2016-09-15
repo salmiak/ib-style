@@ -120,12 +120,12 @@ gulp.task('favicon', () => {
   .pipe(gulp.dest(config.dest));
 });
 
-
 // assembler
 gulp.task('assembler', (done) => {
   assembler({
     logErrors: config.dev,
     dest: config.dest,
+    helpers: require('handlebars-helpers')()
   });
   done();
 });
