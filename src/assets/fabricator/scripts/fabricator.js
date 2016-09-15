@@ -14,8 +14,7 @@ const fabricator = window.fabricator = {};
 fabricator.options = {
   toggles: {
     labels: true,
-    notes: true,
-    code: false,
+    notes: true
   },
   menu: false,
   mq: '(min-width: 60em)',
@@ -180,15 +179,14 @@ fabricator.menuToggle = () => {
 
 
 /**
- * Handler for preview and code toggles
+ * Handler for preview toggles
  * @return {Object} fabricator
  */
 fabricator.allItemsToggles = () => {
 
   const itemCache = {
     labels: document.querySelectorAll('[data-f-toggle="labels"]'),
-    notes: document.querySelectorAll('[data-f-toggle="notes"]'),
-    code: document.querySelectorAll('[data-f-toggle="code"]'),
+    notes: document.querySelectorAll('[data-f-toggle="notes"]')
   };
 
   const toggleAllControls = document.querySelectorAll('.f-controls [data-f-toggle-control]');
@@ -272,27 +270,6 @@ fabricator.singleItemToggle = () => {
 };
 
 
-/**
- * Automatically select code when code block is clicked
- */
-fabricator.bindCodeAutoSelect = () => {
-
-  const codeBlocks = document.querySelectorAll('.f-item-code');
-
-  const select = (block) => {
-    const selection = window.getSelection();
-    const range = document.createRange();
-    range.selectNodeContents(block.querySelector('code'));
-    selection.removeAllRanges();
-    selection.addRange(range);
-  };
-
-  for (let i = codeBlocks.length - 1; i >= 0; i--) {
-    codeBlocks[i].addEventListener('click', select.bind(this, codeBlocks[i]));
-  }
-
-};
-
 
 /**
  * Open/Close menu based on session var.
@@ -335,5 +312,4 @@ fabricator
  .allItemsToggles()
  .singleItemToggle()
  .buildColorChips()
- .setActiveItem()
- .bindCodeAutoSelect();
+ .setActiveItem();
