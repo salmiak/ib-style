@@ -7,7 +7,7 @@
 <div class="f-item-preview">
 	<div class="f-item-pictures">
 		{{#each data.images}}
-			<img src="/images/{{@../key}}/{{this}}" width="300px">
+			<img src="/images/{{@../key}}/{{this.name}}" width="{{this.width}}">
 		{{/each}}
 	</div>
 	<div data-f-toggle="labels">

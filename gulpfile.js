@@ -46,7 +46,7 @@ const config = {
     toolkit: {
       src: ['src/**/*', 'src/favicon.ico'],
       dest: 'dist',
-      watch: 'src/**/*.{png,jpg,gif}',
+      watch: 'src/**/*.{png,jpg,gif,svg}',
     },
   },
   templates: {
