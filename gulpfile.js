@@ -2,6 +2,7 @@ const assembler = require('fabricator-assemble');
 const browserSync = require('browser-sync');
 const csso = require('gulp-csso');
 const del = require('del');
+const ghPages = require('gulp-gh-pages');
 const gulp = require('gulp');
 const gutil = require('gulp-util');
 const gulpif = require('gulp-if');
@@ -128,6 +129,12 @@ gulp.task('assembler', (done) => {
     helpers: require('handlebars-helpers')()
   });
   done();
+});
+
+// deploy to gh-pages
+gulp.task('deploy', function() {
+  return gulp.src('./dist/**/*')
+    .pipe(ghPages());
 });
 
 
